@@ -9,50 +9,50 @@ A production-ready API Gateway template built with NestJS, TypeScript, and best 
 
 ## Features
 
-- ✅ **Authentication & Authorization**: JWT and API Key support with role-based access control
-- ✅ **Rate Limiting**: Redis-backed throttling with per-endpoint configuration
-- ✅ **Error Handling**: Consistent error responses across all services
-- ✅ **Request Tracing**: Logging with request IDs for traceability
-- ✅ **Service Proxy**: Forward and transform requests to microservices
-- ✅ **Resource Quota Management**: Limit resource usage per tenant
-- ✅ **Input Validation**: Request validation with class-validator
-- ✅ **Health Checks**: Endpoints for monitoring
-- ✅ **API Documentation**: Swagger integration
-- ✅ **Test Setup**: Unit and integration tests
-- ✅ **CI Pipeline**: GitHub Actions workflow
+- ✓ **Authentication & Authorization**: JWT and API Key support with role-based access control
+- ✓ **Rate Limiting**: Redis-backed throttling with per-endpoint configuration
+- ✓ **Error Handling**: Consistent error responses across all services
+- ✓ **Request Tracing**: Logging with request IDs for traceability
+- ✓ **Service Proxy**: Forward and transform requests to microservices
+- ✓ **Resource Quota Management**: Limit resource usage per tenant
+- ✓ **Input Validation**: Request validation with class-validator
+- ✓ **Health Checks**: Endpoints for monitoring
+- ✓ **API Documentation**: Swagger integration
+- ✓ **Test Setup**: Unit and integration tests
+- ✓ **CI Pipeline**: GitHub Actions workflow
 
 ## Project Structure
 
 ```
 api-gateway-template/
-├── src/
-│   ├── app.controller.ts      # Main app controller with health checks
-│   ├── app.module.ts          # Main app module
-│   ├── app.service.ts         # App service
-│   ├── main.ts                # Application entry point
-│   ├── core/                  # Core gateway functionality
-│   │   ├── auth/              # Authentication & authorization
-│   │   ├── exceptions/        # Exception handling
-│   │   ├── filters/           # Global exception filters
-│   │   ├── middleware/        # HTTP middleware
-│   │   ├── redis/             # Redis client
-│   │   ├── throttler/         # Rate limiting
-│   │   └── types/             # TypeScript type definitions
-│   ├── services/              # Microservice connectors
-│   │   ├── service-a/         # Service A connector
-│   │   ├── service-b/         # Service B connector
-│   │   └── service-c/         # Service C connector
-│   └── shared/                # Shared utilities
-│       ├── decorators/        # Custom decorators
-│       ├── pipes/             # Validation pipes
-│       ├── services/          # Shared services
-│       └── utils/             # Utility functions
-├── test/                      # Tests
-├── .github/                   # GitHub workflows
-├── Dockerfile                 # Docker configuration
-├── nest-cli.json              # NestJS CLI configuration
-├── package.json               # Dependencies and scripts
-└── tsconfig.json              # TypeScript configuration
+|— src/
+|  |— app.controller.ts      # Main app controller with health checks
+|  |— app.module.ts          # Main app module
+|  |— app.service.ts         # App service
+|  |— main.ts                # Application entry point
+|  |— core/                  # Core gateway functionality
+|  |  |— auth/               # Authentication & authorization
+|  |  |— exceptions/         # Exception handling
+|  |  |— filters/            # Global exception filters
+|  |  |— middleware/         # HTTP middleware
+|  |  |— redis/              # Redis client
+|  |  |— throttler/          # Rate limiting
+|  |  |— types/              # TypeScript type definitions
+|  |— services/              # Microservice connectors
+|  |  |— service-a/          # Service A connector
+|  |  |— service-b/          # Service B connector
+|  |  |— service-c/          # Service C connector
+|  |— shared/                # Shared utilities
+|     |— decorators/         # Custom decorators
+|     |— pipes/              # Validation pipes
+|     |— services/           # Shared services
+|     |— utils/              # Utility functions
+|— test/                     # Tests
+|— .github/                  # GitHub workflows
+|— Dockerfile                # Docker configuration
+|— nest-cli.json             # NestJS CLI configuration
+|— package.json              # Dependencies and scripts
+|— tsconfig.json             # TypeScript configuration
 ```
 
 ## Getting Started
@@ -66,23 +66,23 @@ api-gateway-template/
 ### Installation
 
 1. Clone the repository
-```bash
+```
 git clone https://github.com/ugurcan-aytar/api-gateway-template.git
 cd api-gateway-template
 ```
 
 2. Install dependencies
-```bash
+```
 npm install
 ```
 
 3. Set up environment variables
-```bash
+```
 cp .env.example .env
 ```
 
 4. Run the development server
-```bash
+```
 npm run start:dev
 ```
 
@@ -94,19 +94,19 @@ The application is configured using environment variables:
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `PORT` | HTTP port | 8000 |
-| `REDIS_HOST_MASTER` | Redis host | localhost |
-| `REDIS_PORT` | Redis port | 6379 |
-| `THROTTLE_TTL` | Rate limit window (seconds) | 60 |
-| `THROTTLE_LIMIT` | Rate limit requests per window | 60 |
-| `SERVICE_A_URL` | Service A base URL | http://localhost:8001 |
-| `SERVICE_A_API_KEY` | Service A API key | |
-| `SERVICE_B_URL` | Service B base URL | http://localhost:8002 |
-| `SERVICE_B_API_KEY` | Service B API key | |
-| `SERVICE_C_URL` | Service C base URL | http://localhost:8003 |
-| `SERVICE_C_API_KEY` | Service C API key | |
-| `AUTH_SERVICE_URL` | Auth service URL | http://localhost:8005 |
-| `STATIC_API_TOKEN` | Static API token(s) for authentication | |
+| PORT | HTTP port | 8000 |
+| REDIS_HOST_MASTER | Redis host | localhost |
+| REDIS_PORT | Redis port | 6379 |
+| THROTTLE_TTL | Rate limit window (seconds) | 60 |
+| THROTTLE_LIMIT | Rate limit requests per window | 60 |
+| SERVICE_A_URL | Service A base URL | http://localhost:8001 |
+| SERVICE_A_API_KEY | Service A API key | |
+| SERVICE_B_URL | Service B base URL | http://localhost:8002 |
+| SERVICE_B_API_KEY | Service B API key | |
+| SERVICE_C_URL | Service C base URL | http://localhost:8003 |
+| SERVICE_C_API_KEY | Service C API key | |
+| AUTH_SERVICE_URL | Auth service URL | http://localhost:8005 |
+| STATIC_API_TOKEN | Static API token(s) for authentication | |
 
 ## Core Features
 
@@ -114,10 +114,10 @@ The application is configured using environment variables:
 
 The gateway supports both JWT and API key authentication:
 
-- **JWT Authentication**: Used for user-based authentication. Tokens are validated against an authentication service.
-- **API Key Authentication**: Used for service-to-service communication. API keys are defined in environment variables.
+- JWT Authentication: Used for user-based authentication. Tokens are validated against an authentication service.
+- API Key Authentication: Used for service-to-service communication. API keys are defined in environment variables.
 
-```typescript
+```
 // Example of securing an endpoint with JWT authentication and role-based access
 @Get('users')
 @Resource('user')
@@ -138,7 +138,7 @@ The template includes a Redis-backed rate limiter with:
 - Header-based client identification
 - Response headers with rate limit information
 
-```typescript
+```
 // Example of configuring rate limits
 const limitMap = {
   'POST:user': 5,         // 5 requests per minute
@@ -155,7 +155,7 @@ Standardized error responses across all services:
 - Rich error details
 - Request tracing via unique request IDs
 
-```json
+```
 // Example error response
 {
   "error": "ValidationError",
@@ -185,7 +185,7 @@ The gateway forwards requests to microservices while:
 
 Each service connector follows a similar pattern:
 
-```typescript
+```
 // Example service connector method
 async getItemById(tenantId: string, itemId: string) {
   const url = `${this.baseUrl}/items/${itemId}?tenantId=${tenantId}`;
@@ -221,7 +221,7 @@ Every request receives a unique ID that is:
 
 This makes it easy to trace requests across the entire system:
 
-```typescript
+```
 // Request ID generation in LoggingMiddleware
 const requestId = req.headers['x-request-id'] as string || uuidv4();
 req.headers['x-request-id'] = requestId;
@@ -239,7 +239,7 @@ if (request.headers['x-request-id']) {
 
 The template uses NestJS's validation pipes with class-validator to ensure all requests are valid:
 
-```typescript
+```
 // Example DTO with validation
 export class CreateUserDto {
   @IsString()
@@ -261,9 +261,9 @@ export class CreateUserDto {
 
 The API includes health check endpoints for monitoring:
 
-- `/health` - Public health check
-- `/system-check` - Public system check
-- `/system-check-key` - Protected system check (requires authentication)
+- /health - Public health check
+- /system-check - Public system check
+- /system-check-key - Protected system check (requires authentication)
 
 These endpoints return status information and can be used by load balancers and monitoring tools.
 
@@ -271,25 +271,25 @@ These endpoints return status information and can be used by load balancers and 
 
 ### Adding a New Microservice
 
-1. Create a new module in `src/services/`
+1. Create a new module in src/services/
 2. Create service classes for communicating with the microservice
 3. Create controllers to expose the microservice functionality
-4. Add the new module to `AppModule`
+4. Add the new module to AppModule
 
 ### Adding Custom Authentication
 
-1. Modify `AuthenticationProvider` in `src/core/auth/auth.provider.ts`
+1. Modify AuthenticationProvider in src/core/auth/auth.provider.ts
 2. Update the JWT or API key validation logic
 3. Add any additional authentication guards
 
 ### Modifying Rate Limits
 
-1. Update the limit maps in `ThrottlerService` in `src/core/throttler/throttler.service.ts`
+1. Update the limit maps in ThrottlerService in src/core/throttler/throttler.service.ts
 2. Customize limits for specific endpoints or resources
 
 ### Adding Custom Exceptions
 
-1. Create a new exception class extending `BaseException` in `src/core/exceptions/`
+1. Create a new exception class extending BaseException in src/core/exceptions/
 2. Add appropriate status codes and error types
 3. Use the new exception in your services
 
@@ -321,7 +321,7 @@ These endpoints return status information and can be used by load balancers and 
 
 ## Testing
 
-```bash
+```
 # Unit tests
 npm run test
 
@@ -338,7 +338,7 @@ npm run test:cov
 
 A Dockerfile is included for containerization:
 
-```bash
+```
 # Build the image
 docker build -t api-gateway .
 
@@ -348,7 +348,7 @@ docker run -p 8000:8000 --env-file .env api-gateway
 
 ### Kubernetes
 
-The gateway can be deployed to Kubernetes. A basic manifest is included in `k8s/` directory.
+The gateway can be deployed to Kubernetes. A basic manifest is included in k8s/ directory.
 
 ## Contributing
 
@@ -357,6 +357,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
-
-1
