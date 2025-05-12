@@ -19,7 +19,6 @@ A production-ready API Gateway template built with NestJS, TypeScript, and best 
 - ✓ **Health Checks**: Endpoints for monitoring
 - ✓ **API Documentation**: Swagger integration
 - ✓ **Test Setup**: Unit and integration tests
-- ✓ **CI Pipeline**: GitHub Actions workflow
 
 ## Project Structure
 
