@@ -345,10 +345,6 @@ docker build -t api-gateway .
 docker run -p 8000:8000 --env-file .env api-gateway
 ```
 
-### Kubernetes
-
-The gateway can be deployed to Kubernetes. A basic manifest is included in k8s/ directory.
-
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
